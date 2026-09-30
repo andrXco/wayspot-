@@ -1,0 +1,31 @@
+{
+  "name": "wayspot-",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/andrXco/wayspot-#readme",
+  "bugs": {
+    "url": "https://github.com/andrXco/wayspot-/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrXco/wayspot-.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+  "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "morgan": "^1.12.1",
+    "pg": "^8.23.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+  
+}
