@@ -26,6 +26,15 @@
           "response": []
         },
         {
+          "name": "Obtener reseñas de un usuario",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/users/1/reviews", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["users", "1", "reviews"] },
+            "description": "Trae todas las reseñas del usuario con ID 1. Cambia el ID por otro usuario existente."
+          },
+          "response": []
+        },
+        {
           "name": "Crear usuario",
           "request": {
             "method": "POST",
@@ -80,6 +89,15 @@
             "method": "GET",
             "url": { "raw": "http://localhost:3000/places/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["places", "1"] },
             "description": "El lugar 1 viene en los datos iniciales. Puedes cambiar el ID por otro."
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener reseñas de un lugar",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/places/1/reviews", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["places", "1", "reviews"] },
+            "description": "Trae todas las reseñas del lugar con ID 1. Cambia el ID por otro lugar existente."
           },
           "response": []
         },

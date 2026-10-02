@@ -6,10 +6,12 @@ import {
     getPlaces,
     updatePlace
 } from "../controllers/places.controller.js";
+import { getReviewsByPlaceId } from "../controllers/reviews.controller.js";
 
 const router = Router();
 
 router.get("/places", getPlaces);
+router.get("/places/:placeId/reviews", getReviewsByPlaceId);
 router.get("/places/:id", getPlaceById);
 router.post("/places", createPlace);
 router.put("/places/:id", updatePlace);

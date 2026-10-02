@@ -25,6 +25,42 @@ export const getReviewById = async (req, res) => {
     }
 };
 
+export const getReviewsByPlaceId = async (req, res) => {
+    try {
+        const place = await Place.findByPk(req.params.placeId);
+
+        if (!place) {
+            return res.status(404).json({ error: "Lugar no encontrado" });
+        }
+
+        const reviews = await Review.findAll({
+            where: { placeId: req.params.placeId }
+        });
+
+        return res.json(reviews);
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+export const getReviewsByUserId = async (req, res) => {
+    try {
+        const user = await User.findByPk(req.params.userId);
+
+        if (!user) {
+            return res.status(404).json({ error: "Usuario no encontrado" });
+        }
+
+        const reviews = await Review.findAll({
+            where: { userId: req.params.userId }
+        });
+
+        return res.json(reviews);
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
 export const createReview = async (req, res) => {
     try {
         const user = await User.findByPk(req.body.userId);
