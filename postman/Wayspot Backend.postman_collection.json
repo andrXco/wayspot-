@@ -2,52 +2,183 @@
   "info": {
     "_postman_id": "f8299932-240f-4a22-ba4c-d7830bbdfd05",
     "name": "Wayspot Backend",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "58584530",
-    "_collection_link": "https://go.postman.co/collection/58584530-f8299932-240f-4a22-ba4c-d7830bbdfd05?source=collection_link"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "Get User By ID",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:3000/users/1",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "3000",
-          "path": [
-            "users",
-            "1"
-          ]
+      "name": "Usuarios",
+      "item": [
+        {
+          "name": "Obtener usuarios",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/users", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["users"] }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener usuario por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/users/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["users", "1"] },
+            "description": "El usuario 1 viene en los datos iniciales. Puedes cambiar el ID por otro."
+          },
+          "response": []
+        },
+        {
+          "name": "Crear usuario",
+          "request": {
+            "method": "POST",
+            "url": { "raw": "http://localhost:3000/users", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["users"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Gómez\",\n  \"username\": \"anagomez\",\n  \"email\": \"ana@wayspot.com\",\n  \"bio\": \"Me gusta viajar\",\n  \"location\": \"Bogotá, Colombia\",\n  \"avatarUrl\": null\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar usuario",
+          "request": {
+            "method": "PUT",
+            "url": { "raw": "http://localhost:3000/users/4", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["users", "4"] },
+            "description": "Cambia el 4 por el ID del usuario que quieres actualizar.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ana Gómez\",\n  \"username\": \"anagomez\",\n  \"email\": \"ana@wayspot.com\",\n  \"bio\": \"Ahora también comparto mis viajes\",\n  \"location\": \"Medellín, Colombia\",\n  \"avatarUrl\": null\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar usuario",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:3000/users/4", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["users", "4"] },
+            "description": "Cambia el 4 por el ID del usuario que quieres eliminar."
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Get All Places",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": ""
+      "name": "Lugares",
+      "item": [
+        {
+          "name": "Obtener lugares",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/places", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["places"] }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener lugar por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/places/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["places", "1"] },
+            "description": "El lugar 1 viene en los datos iniciales. Puedes cambiar el ID por otro."
+          },
+          "response": []
+        },
+        {
+          "name": "Crear lugar",
+          "request": {
+            "method": "POST",
+            "url": { "raw": "http://localhost:3000/places", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["places"] },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Parque Tayrona\",\n  \"category\": \"Naturaleza\",\n  \"location\": \"Santa Marta, Colombia\",\n  \"rating\": 4.8,\n  \"imageUrl\": null,\n  \"description\": \"Parque natural en la costa Caribe\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar lugar",
+          "request": {
+            "method": "PUT",
+            "url": { "raw": "http://localhost:3000/places/4", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["places", "4"] },
+            "description": "Cambia el 4 por el ID del lugar que quieres actualizar.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Parque Tayrona\",\n  \"category\": \"Naturaleza\",\n  \"location\": \"Santa Marta, Colombia\",\n  \"rating\": 4.9,\n  \"imageUrl\": null,\n  \"description\": \"Parque natural con playas y senderos\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar lugar",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:3000/places/4", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["places", "4"] },
+            "description": "Cambia el 4 por el ID del lugar que quieres eliminar."
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "Get Place By Id",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": ""
+      "name": "Reseñas",
+      "item": [
+        {
+          "name": "Obtener reseñas",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/reviews", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["reviews"] }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener reseña por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:3000/reviews/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["reviews", "1"] },
+            "description": "Cambia el 1 por el ID que devuelva Crear reseña."
+          },
+          "response": []
+        },
+        {
+          "name": "Crear reseña",
+          "request": {
+            "method": "POST",
+            "url": { "raw": "http://localhost:3000/reviews", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["reviews"] },
+            "description": "Los userId y placeId deben corresponder a un usuario y un lugar existentes.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 5,\n  \"title\": \"Visita recomendada\",\n  \"description\": \"El paisaje y los senderos son increíbles\",\n  \"userId\": 1,\n  \"placeId\": 1\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar reseña",
+          "request": {
+            "method": "PUT",
+            "url": { "raw": "http://localhost:3000/reviews/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["reviews", "1"] },
+            "description": "Cambia el 1 por el ID de la reseña que quieres actualizar.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 4,\n  \"title\": \"Muy buena visita\",\n  \"description\": \"El paisaje es bonito y volvería otra vez\",\n  \"userId\": 1,\n  \"placeId\": 1\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar reseña",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "http://localhost:3000/reviews/1", "protocol": "http", "host": ["localhost"], "port": "3000", "path": ["reviews", "1"] },
+            "description": "Cambia el 1 por el ID de la reseña que quieres eliminar."
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     }
   ]
 }

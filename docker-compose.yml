@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: wayspot-postgres
+    environment:
+      POSTGRES_DB: wayspot
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Simon1213
+    ports:
+      - "5432:5432"
+    volumes:
+      - wayspot-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  wayspot-postgres-data:

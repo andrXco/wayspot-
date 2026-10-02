@@ -3,12 +3,9 @@ import { Place } from "../models/Place.js";
 export const getPlaces = async (req, res) => {
     try {
         const places = await Place.findAll();
-
-        res.json(places);
+        return res.json(places);
     } catch (error) {
-        return res.status(500).json({
-            message: error.message
-        });
+        return res.status(500).json({ error: error.message });
     }
 };
 
@@ -17,15 +14,50 @@ export const getPlaceById = async (req, res) => {
         const place = await Place.findByPk(req.params.id);
 
         if (!place) {
-            return res.status(404).json({
-                message: "Place not found"
-            });
+            return res.status(404).json({ error: "Lugar no encontrado" });
         }
 
-        res.json(place);
+        return res.json(place);
     } catch (error) {
-        return res.status(500).json({
-            message: error.message
-        });
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+export const createPlace = async (req, res) => {
+    try {
+        const newPlace = await Place.create(req.body);
+        return res.status(201).json(newPlace);
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+export const updatePlace = async (req, res) => {
+    try {
+        const place = await Place.findByPk(req.params.id);
+
+        if (!place) {
+            return res.status(404).json({ error: "Lugar no encontrado" });
+        }
+
+        await place.update(req.body);
+        return res.json(place);
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+};
+
+export const deletePlace = async (req, res) => {
+    try {
+        const place = await Place.findByPk(req.params.id);
+
+        if (!place) {
+            return res.status(404).json({ error: "Lugar no encontrado" });
+        }
+
+        await place.destroy();
+        return res.status(204).send();
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
     }
 };
