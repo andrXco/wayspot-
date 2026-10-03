@@ -11,7 +11,7 @@ async function main() {
 
         setupRelations();
 
-        await sequelize.sync({ force: true });
+        await sequelize.sync();
         console.log("Database synchronized successfully.");
 
         await loadInitialUsers();
